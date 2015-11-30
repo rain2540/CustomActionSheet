@@ -33,8 +33,8 @@ class CustomActionSheet: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(buttonArray: [UIView]) {
-        super.init(coder: NSCoder())!
+    convenience init(buttonArray: [UIView]) {
+        self.init(coder: NSCoder())!
         
         buttons = buttonArray
         backgroundColor = UIColor.grayColor()

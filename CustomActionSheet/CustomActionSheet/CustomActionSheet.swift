@@ -8,12 +8,12 @@
 
 import UIKit
 
-private let intervalWithButtonsX: CGFloat = 30.0
-private let intervalWithButtonsY: CGFloat = 5.0
-private let buttonsPerRow = 3
-private let headerHeight: CGFloat = 20.0
-private let bottomHeight: CGFloat = 20.0
-private let cancelButtonHeight: CGFloat = 46.0
+private let IntervalWithButtonsX: CGFloat = 30.0
+private let IntervalWithButtonsY: CGFloat = 5.0
+private let ButtonsPerRow = 3
+private let HeaderHeight: CGFloat = 20.0
+private let BottomHeight: CGFloat = 20.0
+private let CancelButtonHeight: CGFloat = 46.0
 
 @objc protocol CustomActionSheetDelegate: NSObjectProtocol {
     optional func choseAtIndex(index: Int)
@@ -66,7 +66,26 @@ class CustomActionSheet: UIView {
             return
         }
         
+        let buttonWidth = (buttons.first as! CustomActionSheetButton).width
+        let buttonHeight = (buttons.first as! CustomActionSheetButton).height
         
+        frame = CGRect(x: 0, y: view.height, width: view.width, height: CancelButtonHeight + BottomHeight + HeaderHeight + (buttonHeight + IntervalWithButtonsY) * (CGFloat(buttons.count - 1) / CGFloat(ButtonsPerRow + 1)))
+        backgroundImageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        let beginX = (width - (IntervalWithButtonsX * CGFloat(ButtonsPerRow - 1) + buttonWidth * CGFloat(ButtonsPerRow))) / 2
+        cancelButton.frame = CGRect(x: beginX, y: (IntervalWithButtonsY + buttonHeight) * (CGFloat(buttons.count - 1) / CGFloat(ButtonsPerRow) + 1) + HeaderHeight, width: width - beginX * 2, height: CancelButtonHeight)
+        
+        if buttons.count > ButtonsPerRow {
+            for i in 0 ..< buttons.count {
+                let button = buttons[i] as! CustomActionSheetButton
+                button.frame = CGRect(x: beginX + CGFloat(i % ButtonsPerRow) * (buttonWidth + IntervalWithButtonsX), y: HeaderHeight + CGFloat(i / ButtonsPerRow) * (buttonHeight + IntervalWithButtonsY), width: buttonWidth, height: buttonHeight)
+            }
+        } else {
+            let intervalX = (width - beginX * 2 - buttonWidth * CGFloat(buttons.count)) / CGFloat(buttons.count - 1)
+            for i in 0 ..< buttons.count {
+                let button = buttons[i] as! CustomActionSheetButton
+                button.frame = CGRect(x: beginX + CGFloat(i % ButtonsPerRow) * (buttonWidth + intervalX), y: HeaderHeight + CGFloat(i / ButtonsPerRow) * (buttonHeight + IntervalWithButtonsY), width: buttonWidth, height: buttonHeight)
+            }
+        }
     }
     
     func showInView(view: UIView) {

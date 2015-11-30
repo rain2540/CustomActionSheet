@@ -21,9 +21,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonAction() {
-        let sheet = CustomActionSheet(buttonArray: [CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")])
+        let sheet = CustomActionSheet(frame: view.frame, delegate: self)
+
         sheet.showInView(view)
     }
 
+}
+
+extension ViewController: CustomActionSheetDelegate {
+    func customActionSheetButtons(actionSheet: CustomActionSheet) -> [UIView] {
+        return [CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")]
+    }
 }
 

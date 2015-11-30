@@ -87,6 +87,11 @@ class CustomActionSheet: UIView {
         coverView.hidden = true
         UIView.commitAnimations()
     }
+    
+    func sheetDidDismissed() {
+        coverView.removeFromSuperview()
+        removeFromSuperview()
+    }
 
     @objc private func buttonAction(sender: UIButton) {
         if (delegate?.respondsToSelector("choseAtIndex:")) != false {

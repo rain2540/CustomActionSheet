@@ -12,6 +12,8 @@
 		B74421CC1C0BF269005F78C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74421CA1C0BF269005F78C4 /* Main.storyboard */; };
 		B74421CE1C0BF269005F78C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74421CD1C0BF269005F78C4 /* Assets.xcassets */; };
 		B74421D11C0BF269005F78C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74421CF1C0BF269005F78C4 /* LaunchScreen.storyboard */; };
+		B74421DA1C0BF546005F78C4 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */; };
+		B74421DC1C0BF713005F78C4 /* CustomActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B74421CD1C0BF269005F78C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B74421D01C0BF269005F78C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B74421D21C0BF269005F78C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomActionSheet.swift; path = CustomActionSheet/CustomActionSheet.swift; sourceTree = "<group>"; };
+		B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheetButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		B74421C51C0BF269005F78C4 /* CustomActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				B74421D81C0BF509005F78C4 /* CustomActionSheet */,
 				B74421C61C0BF269005F78C4 /* AppDelegate.swift */,
 				B74421C81C0BF269005F78C4 /* ViewController.swift */,
 				B74421CA1C0BF269005F78C4 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				B74421D21C0BF269005F78C4 /* Info.plist */,
 			);
 			path = CustomActionSheet;
+			sourceTree = "<group>";
+		};
+		B74421D81C0BF509005F78C4 /* CustomActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */,
+				B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */,
+			);
+			name = CustomActionSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74421DA1C0BF546005F78C4 /* CustomActionSheet.swift in Sources */,
 				B74421C91C0BF269005F78C4 /* ViewController.swift in Sources */,
+				B74421DC1C0BF713005F78C4 /* CustomActionSheetButton.swift in Sources */,
 				B74421C71C0BF269005F78C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +303,7 @@
 				B74421D71C0BF269005F78C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -69,6 +69,16 @@ class CustomActionSheet: UIView {
         
     }
     
+    func showInView(view: UIView) {
+        setPositionInView(view)
+        view.addSubview(coverView)
+        view.addSubview(self)
+        UIView.beginAnimations("ShowCustomActionSheet", context: nil)
+        frame = CGRect(x: 0, y: y - height, width: width, height: height)
+        coverView.hidden = false
+        UIView.commitAnimations()
+    }
+    
     func dismiss() {
         UIView.beginAnimations("DismissCustomActionSheet", context: nil)
         frame = CGRect(x: 0, y: y + height, width: width, height: height)

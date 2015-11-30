@@ -12,8 +12,6 @@
 		B74421CC1C0BF269005F78C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74421CA1C0BF269005F78C4 /* Main.storyboard */; };
 		B74421CE1C0BF269005F78C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74421CD1C0BF269005F78C4 /* Assets.xcassets */; };
 		B74421D11C0BF269005F78C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74421CF1C0BF269005F78C4 /* LaunchScreen.storyboard */; };
-		B74421DA1C0BF546005F78C4 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */; };
-		B74421DC1C0BF713005F78C4 /* CustomActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */; };
 		B74422241C0C2035005F78C4 /* RGScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74422181C0C2035005F78C4 /* RGScreen.swift */; };
 		B74422251C0C2035005F78C4 /* RGUIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744221A1C0C2035005F78C4 /* RGUIConstant.swift */; };
 		B74422261C0C2035005F78C4 /* UIColor+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744221C1C0C2035005F78C4 /* UIColor+Initialization.swift */; };
@@ -21,6 +19,11 @@
 		B74422281C0C2035005F78C4 /* UINavigationBar+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74422201C0C2035005F78C4 /* UINavigationBar+Colors.swift */; };
 		B74422291C0C2035005F78C4 /* UIView+DrawTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74422221C0C2035005F78C4 /* UIView+DrawTools.swift */; };
 		B744222A1C0C2035005F78C4 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74422231C0C2035005F78C4 /* UIView+Rect.swift */; };
+		B74422301C0C2210005F78C4 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744222E1C0C2210005F78C4 /* CustomActionSheet.swift */; };
+		B74422311C0C2210005F78C4 /* CustomActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744222F1C0C2210005F78C4 /* CustomActionSheetButton.swift */; };
+		B74422341C0C225D005F78C4 /* actionsheet_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B74422331C0C225D005F78C4 /* actionsheet_bg@2x.png */; };
+		B74422361C0C23D8005F78C4 /* CustomActionSheetButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B74422351C0C23D8005F78C4 /* CustomActionSheetButton.xib */; };
+		B74422381C0C412C005F78C4 /* actionsheet_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B74422371C0C412C005F78C4 /* actionsheet_button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +34,6 @@
 		B74421CD1C0BF269005F78C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B74421D01C0BF269005F78C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B74421D21C0BF269005F78C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomActionSheet.swift; path = CustomActionSheet/CustomActionSheet.swift; sourceTree = "<group>"; };
-		B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheetButton.swift; sourceTree = "<group>"; };
 		B74422181C0C2035005F78C4 /* RGScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGScreen.swift; sourceTree = "<group>"; };
 		B744221A1C0C2035005F78C4 /* RGUIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGUIConstant.swift; sourceTree = "<group>"; };
 		B744221C1C0C2035005F78C4 /* UIColor+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Initialization.swift"; sourceTree = "<group>"; };
@@ -40,6 +41,11 @@
 		B74422201C0C2035005F78C4 /* UINavigationBar+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Colors.swift"; sourceTree = "<group>"; };
 		B74422221C0C2035005F78C4 /* UIView+DrawTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DrawTools.swift"; sourceTree = "<group>"; };
 		B74422231C0C2035005F78C4 /* UIView+Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
+		B744222E1C0C2210005F78C4 /* CustomActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
+		B744222F1C0C2210005F78C4 /* CustomActionSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheetButton.swift; sourceTree = "<group>"; };
+		B74422331C0C225D005F78C4 /* actionsheet_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionsheet_bg@2x.png"; sourceTree = "<group>"; };
+		B74422351C0C23D8005F78C4 /* CustomActionSheetButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomActionSheetButton.xib; sourceTree = "<group>"; };
+		B74422371C0C412C005F78C4 /* actionsheet_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionsheet_button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +93,12 @@
 		B74421D81C0BF509005F78C4 /* CustomActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				B74421D91C0BF546005F78C4 /* CustomActionSheet.swift */,
-				B74421DB1C0BF713005F78C4 /* CustomActionSheetButton.swift */,
+				B74422321C0C225D005F78C4 /* Resources */,
+				B744222E1C0C2210005F78C4 /* CustomActionSheet.swift */,
+				B744222F1C0C2210005F78C4 /* CustomActionSheetButton.swift */,
+				B74422351C0C23D8005F78C4 /* CustomActionSheetButton.xib */,
 			);
-			name = CustomActionSheet;
+			path = CustomActionSheet;
 			sourceTree = "<group>";
 		};
 		B74422161C0C2035005F78C4 /* RGUIExtension */ = {
@@ -155,6 +163,15 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		B74422321C0C225D005F78C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B74422331C0C225D005F78C4 /* actionsheet_bg@2x.png */,
+				B74422371C0C412C005F78C4 /* actionsheet_button@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,7 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B74421D11C0BF269005F78C4 /* LaunchScreen.storyboard in Resources */,
+				B74422341C0C225D005F78C4 /* actionsheet_bg@2x.png in Resources */,
+				B74422361C0C23D8005F78C4 /* CustomActionSheetButton.xib in Resources */,
 				B74421CE1C0BF269005F78C4 /* Assets.xcassets in Resources */,
+				B74422381C0C412C005F78C4 /* actionsheet_button@2x.png in Resources */,
 				B74421CC1C0BF269005F78C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,15 +247,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74422301C0C2210005F78C4 /* CustomActionSheet.swift in Sources */,
 				B74422251C0C2035005F78C4 /* RGUIConstant.swift in Sources */,
-				B74421DA1C0BF546005F78C4 /* CustomActionSheet.swift in Sources */,
+				B74422311C0C2210005F78C4 /* CustomActionSheetButton.swift in Sources */,
 				B74422241C0C2035005F78C4 /* RGScreen.swift in Sources */,
 				B74422271C0C2035005F78C4 /* UIImage+URL.swift in Sources */,
 				B74422291C0C2035005F78C4 /* UIView+DrawTools.swift in Sources */,
 				B74422281C0C2035005F78C4 /* UINavigationBar+Colors.swift in Sources */,
 				B744222A1C0C2035005F78C4 /* UIView+Rect.swift in Sources */,
 				B74421C91C0BF269005F78C4 /* ViewController.swift in Sources */,
-				B74421DC1C0BF713005F78C4 /* CustomActionSheetButton.swift in Sources */,
 				B74421C71C0BF269005F78C4 /* AppDelegate.swift in Sources */,
 				B74422261C0C2035005F78C4 /* UIColor+Initialization.swift in Sources */,
 			);

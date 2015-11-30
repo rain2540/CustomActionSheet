@@ -15,7 +15,7 @@ private let headerHeight: CGFloat = 20.0
 private let bottomHeight: CGFloat = 20.0
 private let cancelButtonHeight: CGFloat = 46.0
 
-@objc protocol CustomActionSheetDelegate {
+@objc protocol CustomActionSheetDelegate: NSObjectProtocol {
     optional func choseAtIndex(index: Int)
 }
 
@@ -26,13 +26,62 @@ class CustomActionSheet: UIView {
     lazy var cancelButton = UIButton()
     lazy var coverView = UIView()
     
-    lazy var buttons = [UIButton]()
+    lazy var buttons = [UIView]()
     
-    /*init(buttonArray: [UIButton]) {
-        self.buttons = buttonArray
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(buttonArray: [UIView]) {
+        super.init(coder: NSCoder())!
         
-        coverView = UIView(frame: UIScreen.mainScreen().bounds)
-        coverView.backgroundColor =
+        buttons = buttonArray
+        backgroundColor = UIColor.grayColor()
         
-    }*/
+        coverView = UIView(frame: RGScreen.bounds)
+        coverView.backgroundColor = UIColor(Red: 51.0, Green: 51.0, Blue: 51.0, alpha: 0.6)
+        coverView.hidden = true
+        
+        backgroundImageView = UIImageView(image: UIImage(named: "actionsheet_bg"))
+        backgroundImageView.alpha = 0.7
+        addSubview(backgroundImageView)
+        
+        for i in 0 ..< buttons.count {
+            let button = self.buttons[i] as! CustomActionSheetButton
+            button.imageButton.tag = i
+            button.imageButton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
+            addSubview(button)
+        }
+        
+        cancelButton = UIButton(type: .Custom)
+        cancelButton.setBackgroundImage(UIImage(named: "actionsheet_button"), forState: .Normal)
+        cancelButton.setTitle("取消", forState: .Normal)
+        cancelButton.addTarget(self, action: "dissmiss", forControlEvents: .TouchUpInside)
+        addSubview(cancelButton)
+    }
+    
+    private func setPositionInView(view: UIView) {
+        if buttons.count == 0 {
+            return
+        }
+        
+        
+    }
+    
+    func dismiss() {
+        UIView.beginAnimations("DismissCustomActionSheet", context: nil)
+        frame = CGRect(x: 0, y: y + height, width: width, height: height)
+        UIView.setAnimationDelegate(self)
+        UIView.setAnimationDidStopSelector("sheetDidDismissed")
+        coverView.hidden = true
+        UIView.commitAnimations()
+    }
+
+    @objc private func buttonAction(sender: UIButton) {
+        if (delegate?.respondsToSelector("choseAtIndex:")) != false {
+            delegate?.choseAtIndex!(sender.tag)
+        }
+        dismiss()
+    }
 }

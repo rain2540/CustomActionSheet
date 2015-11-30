@@ -9,5 +9,6 @@
 import UIKit
 
 class CustomActionSheetButton: UIView {
-    
+    lazy var imageButton = UIButton()
+    lazy var titleLabel = UILabel()
 }

@@ -51,8 +51,8 @@ class CustomActionSheet: UIView {
         buttons = delegate?.customActionSheetButtons(self)
         backgroundColor = UIColor.grayColor()
         
-        coverView = UIView(frame: RGScreen.bounds)
-        coverView.backgroundColor = UIColor(Red: 51.0, Green: 51.0, Blue: 51.0, alpha: 0.6)
+        coverView = UIView(frame: MainScreen.bounds)
+        coverView.backgroundColor = UIColor(Red: 51.0, Green: 51.0, Blue: 51.0, Alpha: 0.6)
         coverView.hidden = true
         
         backgroundImageView = UIImageView(image: UIImage(named: "actionsheet_bg"))

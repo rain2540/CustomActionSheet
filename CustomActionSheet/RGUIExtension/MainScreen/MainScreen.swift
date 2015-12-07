@@ -1,5 +1,5 @@
 //
-//  RGScreen.swift
+//  MainScreen.swift
 //  RGUIExtension
 //
 //  Created by RAIN on 15/11/30.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct RGScreen {
+struct MainScreen {
     /// Screen.bounds
-    static var bounds: CGRect { return self.suScreenC.bounds }
+    static var bounds: CGRect { return self.mainScreen.bounds }
     
     /// Screen.size
     static var size: CGSize { return self.bounds.size }
@@ -22,7 +22,7 @@ struct RGScreen {
     static var height: CGFloat { return self.size.height }
     
     private static var opScreen: UIScreen?
-    private static var suScreenC: UIScreen {
+    private static var mainScreen: UIScreen {
         if self.opScreen == nil {
             self.opScreen = UIScreen.mainScreen()
         }

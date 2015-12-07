@@ -9,7 +9,11 @@
 import UIKit
 
 extension UIImage {
-    /// 通过URL路径获取Image
+    /**
+     通过URL路径获取Image
+     
+     - parameter contentsOfURL: 图片的 URL 地址
+     */
     public convenience init?(contentsOfURL URLString: String) {
         guard let URL = NSURL(string: URLString) else {
             print("UIImage init Error: URL might not exist")

@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "CustomActionSheet.h"
 
-@interface ViewController ()
+@interface ViewController () <CustomActionSheetDelegate>
 
 @end
 
@@ -22,6 +23,23 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)buttonAction:(UIButton *)sender {
+    NSArray * buttonArray = @[[CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"1111"],
+                              [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"2222"],
+                              [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"3333"],
+                              [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"4444"],
+                              [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"5555"]];
+    CustomActionSheet * sheet = [[CustomActionSheet alloc] initWithButtons:buttonArray];
+    sheet.delegate = self;
+    [sheet showInView:self.view];
+}
+
+- (void)customActionSheet:(CustomActionSheet *)actionSheet
+             clickAtIndex:(NSInteger)index
+{
+    NSLog(@"%@", @(index));
 }
 
 @end

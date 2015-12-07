@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomActionSheetButton.h"
+
+@class CustomActionSheet;
 
 @protocol CustomActionSheetDelegate <NSObject>
 
 @optional
-- (void)clickAtIndex:(NSInteger)index;
+- (void)customActionSheet:(CustomActionSheet *)actionSheet
+             clickAtIndex:(NSInteger)index;
 
 @end
 
@@ -20,7 +24,7 @@
 @property (nonatomic, weak) id<CustomActionSheetDelegate> delegate;
 
 - (instancetype)initWithButtons:(NSArray *)buttons;
-- (void) showInView:(UIView *)view;
-- (void) dismiss;
+- (void)showInView:(UIView *)view;
+- (void)dismiss;
 
 @end

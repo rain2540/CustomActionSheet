@@ -13,6 +13,9 @@
 		B7CB1E571C1564CF00069ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CB1E551C1564CF00069ABD /* Main.storyboard */; };
 		B7CB1E591C1564CF00069ABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7CB1E581C1564CF00069ABD /* Assets.xcassets */; };
 		B7CB1E5C1C1564CF00069ABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CB1E5A1C1564CF00069ABD /* LaunchScreen.storyboard */; };
+		B7CB1E6F1C15669E00069ABD /* actionsheet_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CB1E6B1C15669E00069ABD /* actionsheet_bg@2x.png */; };
+		B7CB1E701C15669E00069ABD /* actionsheet_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CB1E6C1C15669E00069ABD /* actionsheet_button@2x.png */; };
+		B7CB1E711C15669E00069ABD /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CB1E6E1C15669E00069ABD /* CustomActionSheet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,10 @@
 		B7CB1E581C1564CF00069ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7CB1E5B1C1564CF00069ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7CB1E5D1C1564CF00069ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7CB1E6B1C15669E00069ABD /* actionsheet_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionsheet_bg@2x.png"; sourceTree = "<group>"; };
+		B7CB1E6C1C15669E00069ABD /* actionsheet_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionsheet_button@2x.png"; sourceTree = "<group>"; };
+		B7CB1E6D1C15669E00069ABD /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
+		B7CB1E6E1C15669E00069ABD /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 		B7CB1E4B1C1564CF00069ABD /* CustomActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				B7CB1E631C15660500069ABD /* CustomActionSheet */,
 				B7CB1E4F1C1564CF00069ABD /* AppDelegate.h */,
 				B7CB1E501C1564CF00069ABD /* AppDelegate.m */,
 				B7CB1E521C1564CF00069ABD /* ViewController.h */,
@@ -77,6 +85,17 @@
 				B7CB1E4D1C1564CF00069ABD /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7CB1E631C15660500069ABD /* CustomActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				B7CB1E6B1C15669E00069ABD /* actionsheet_bg@2x.png */,
+				B7CB1E6C1C15669E00069ABD /* actionsheet_button@2x.png */,
+				B7CB1E6D1C15669E00069ABD /* CustomActionSheet.h */,
+				B7CB1E6E1C15669E00069ABD /* CustomActionSheet.m */,
+			);
+			path = CustomActionSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7CB1E5C1C1564CF00069ABD /* LaunchScreen.storyboard in Resources */,
+				B7CB1E6F1C15669E00069ABD /* actionsheet_bg@2x.png in Resources */,
 				B7CB1E591C1564CF00069ABD /* Assets.xcassets in Resources */,
 				B7CB1E571C1564CF00069ABD /* Main.storyboard in Resources */,
+				B7CB1E701C15669E00069ABD /* actionsheet_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7CB1E711C15669E00069ABD /* CustomActionSheet.m in Sources */,
 				B7CB1E541C1564CF00069ABD /* ViewController.m in Sources */,
 				B7CB1E511C1564CF00069ABD /* AppDelegate.m in Sources */,
 				B7CB1E4E1C1564CF00069ABD /* main.m in Sources */,
@@ -262,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomActionSheet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartech.CustomActionSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomActionSheet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartech.CustomActionSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +322,7 @@
 				B7CB1E621C1564CF00069ABD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

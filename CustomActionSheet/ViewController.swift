@@ -21,7 +21,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonAction() {
-        let sheet = CustomActionSheet(frame: view.frame, delegate: self)
+        let sheet = CustomActionSheet()
+        
+        sheet.delegate = self
+        
+        sheet.setupViews([CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")])
 
         sheet.showInView(view)
     }

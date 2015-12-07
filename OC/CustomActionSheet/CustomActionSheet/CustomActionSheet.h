@@ -25,6 +25,5 @@
 
 - (instancetype)initWithButtons:(NSArray *)buttons;
 - (void)showInView:(UIView *)view;
-- (void)dismiss;
 
 @end

@@ -8,9 +8,11 @@
 
 #import "CustomActionSheet.h"
 
+static NSInteger const ButtonsPerRow = 3;
+
 static CGFloat const IntervalWithButtonsX = 30.0f;
 static CGFloat const IntervalWithButtonsY = 5.0f;
-static NSInteger const ButtonsPerRow = 3;
+
 static CGFloat const HeaderHeight = 20.0f;
 static CGFloat const BottomHeight = 20.0f;
 static CGFloat const CancelButtonHeight = 44.0f;
@@ -25,10 +27,13 @@ static CGFloat const CancelButtonHeight = 44.0f;
 
 @end
 
+#pragma mark -
 @implementation CustomActionSheet
 
+#pragma mark Lifecycle
 - (instancetype)initWithButtons:(NSArray *)buttons {
     self = [super init];
+    
     self.buttons = buttons;
     if (self) {
         self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -64,6 +69,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
     self.cancelButton = nil;
 }
 
+#pragma mark Public Method
 - (void)showInView:(UIView *)view {
     [self setPositionInView:view];
     [view addSubview:self.coverView];
@@ -74,6 +80,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
     [UIView commitAnimations];
 }
 
+#pragma mark Callback Method
 - (void)dismiss {
     [UIView beginAnimations:@"DismissCustomActionSheet" context:nil];
     self.frame = CGRectMake(0.0f, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
@@ -99,10 +106,10 @@ static CGFloat const CancelButtonHeight = 44.0f;
                                     self.frame.size.width - beginX * 2,
                                          CancelButtonHeight);
     if (self.buttons.count > ButtonsPerRow) {
-        for (int i = 0; i < [self.buttons count]; i++) {
-            CustomActionSheetButton * button = [self.buttons objectAtIndex:i];
-            button.frame = CGRectMake(beginX + i % ButtonsPerRow*(buttonWidth + IntervalWithButtonsX),
-                                      HeaderHeight + i / ButtonsPerRow*(buttonHeight + IntervalWithButtonsY),
+        for (int i = 0; i < self.buttons.count; i++) {
+            CustomActionSheetButton * button = self.buttons[i];
+            button.frame = CGRectMake(beginX + i % ButtonsPerRow * (buttonWidth + IntervalWithButtonsX),
+                                      HeaderHeight + i / ButtonsPerRow * (buttonHeight + IntervalWithButtonsY),
                                       buttonWidth, buttonHeight);
         }
     } else {
@@ -110,7 +117,8 @@ static CGFloat const CancelButtonHeight = 44.0f;
         for (int i = 0; i < [self.buttons count]; i++) {
             CustomActionSheetButton * button = self.buttons[i];
             button.frame = CGRectMake(beginX + i % ButtonsPerRow * (buttonWidth + intervalX),
-                                      HeaderHeight + i / ButtonsPerRow*(buttonHeight + IntervalWithButtonsY), buttonWidth, buttonHeight);
+                                      HeaderHeight + i / ButtonsPerRow*(buttonHeight + IntervalWithButtonsY),
+                                      buttonWidth, buttonHeight);
         }
     }
 }

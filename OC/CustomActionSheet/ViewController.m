@@ -36,6 +36,7 @@
     [sheet showInView:self.view];
 }
 
+#pragma mark - CustomActionSheetDelegate
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
              clickAtIndex:(NSInteger)index
 {

@@ -10,6 +10,7 @@
 
 @implementation CustomActionSheetButton
 
+#pragma mark Lifecycle
 - (instancetype)init {
     if (self) {
         self = nil;
@@ -30,6 +31,7 @@
     self.titleLabel = nil;
 }
 
+#pragma mark Create
 + (CustomActionSheetButton *)buttonWithImage:(UIImage *)image
                                        title:(NSString *)title
 {

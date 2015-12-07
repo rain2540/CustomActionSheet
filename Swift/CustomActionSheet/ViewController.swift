@@ -33,8 +33,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CustomActionSheetDelegate {
-    func customActionSheetButtons(actionSheet: CustomActionSheet) -> [UIView] {
-        return [CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")]
+    func customActionSheet(actionSheet: CustomActionSheet, choseAtIndex index: Int) {
+        print(index)
     }
 }
 

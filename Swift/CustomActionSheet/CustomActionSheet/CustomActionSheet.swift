@@ -16,7 +16,6 @@ private let BottomHeight: CGFloat = 20.0
 private let CancelButtonHeight: CGFloat = 46.0
 
 @objc protocol CustomActionSheetDelegate: NSObjectProtocol {
-//    func customActionSheetButtons(actionSheet: CustomActionSheet) -> [UIView]
     optional func customActionSheet(actionSheet: CustomActionSheet, choseAtIndex index: Int)
 }
 
@@ -37,14 +36,8 @@ class CustomActionSheet: UIView {
         super.init(frame: frame)
     }
     
-//    convenience init(frame: CGRect, delegate: CustomActionSheetDelegate?) {
-//        self.init(frame: frame)
-//        
-//        self.delegate = delegate
-//    }
-    
     func setupViews(buttonArray: [UIView]) {
-        buttons = buttonArray//delegate?.customActionSheetButtons(self)
+        buttons = buttonArray
         backgroundColor = UIColor.grayColor()
         
         coverView = UIView(frame: MainScreen.bounds)

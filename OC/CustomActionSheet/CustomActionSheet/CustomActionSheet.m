@@ -54,7 +54,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [self.cancelButton setBackgroundImage:[[UIImage imageNamed:@"actionsheet_button"] stretchableImageWithLeftCapWidth:19 topCapHeight:0] forState:UIControlStateNormal];
-        [self.cancelButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [self.cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.cancelButton];
         
         self.backgroundColor = [UIColor grayColor];
@@ -81,6 +81,13 @@ static CGFloat const CancelButtonHeight = 44.0f;
 }
 
 #pragma mark Callback Method
+- (void)cancelButtonAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(customActionSheetCancel:)]) {
+        [self.delegate customActionSheetCancel:self];
+    }
+    [self dismiss];
+}
+
 - (void)dismiss {
     [UIView beginAnimations:@"DismissCustomActionSheet" context:nil];
     self.frame = CGRectMake(0.0f, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
@@ -124,8 +131,8 @@ static CGFloat const CancelButtonHeight = 44.0f;
 }
 
 - (void)buttonAction:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(customActionSheet:clickAtIndex:)]) {
-        [self.delegate customActionSheet:self clickAtIndex:sender.tag];
+    if ([self.delegate respondsToSelector:@selector(customActionSheet:clickedButtonAtIndex:)]) {
+        [self.delegate customActionSheet:self clickedButtonAtIndex:sender.tag];
     }
     [self dismiss];
 }

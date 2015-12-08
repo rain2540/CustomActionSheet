@@ -15,7 +15,10 @@
 
 @optional
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
-             clickAtIndex:(NSInteger)index;
+     clickedButtonAtIndex:(NSInteger)index;
+
+- (void)customActionSheetCancel:(CustomActionSheet *)actionSheet;
+
 
 @end
 

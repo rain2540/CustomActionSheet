@@ -30,6 +30,7 @@
 
 /**
  *  在某个视图中显示 CustomActionSheet
+ *
  *  @param view 显示 CustomActionSheet 的视图
  */
 - (void)showInView:(UIView *)view;

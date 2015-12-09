@@ -36,21 +36,28 @@ static CGFloat const CancelButtonHeight = 44.0f;
     
     self.buttons = buttons;
     if (self) {
+        //  Cover View
         self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         self.coverView.backgroundColor = [UIColor colorWithRed:51.0f / 255.0f green:51.0f / 255.0f blue:51.0f / 255.0f alpha:0.6f];
         self.coverView.hidden = YES;
         
+        UITapGestureRecognizer * tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction:)];
+        [self.coverView addGestureRecognizer:tapGR];
+        
+        //  Background ImageView
         self.backgroundImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"actionsheet_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:110]];
         self.backgroundImageView.alpha = 0.7f;
         [self addSubview:self.backgroundImageView];
         
+        //  Action Buttons
         for (NSInteger i = 0; i < self.buttons.count; i++) {
             CustomActionSheetButton * button = self.buttons[i];
             button.imageButton.tag = i;
-            [button.imageButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+            [button.imageButton addTarget:self action:@selector(actionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
         }
         
+        //  Cancel Button
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [self.cancelButton setBackgroundImage:[[UIImage imageNamed:@"actionsheet_button"] stretchableImageWithLeftCapWidth:19 topCapHeight:0] forState:UIControlStateNormal];
@@ -80,23 +87,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
     [UIView commitAnimations];
 }
 
-#pragma mark Callback Method
-- (void)cancelButtonAction:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(customActionSheetCancel:)]) {
-        [self.delegate customActionSheetCancel:self];
-    }
-    [self dismiss];
-}
-
-- (void)dismiss {
-    [UIView beginAnimations:@"DismissCustomActionSheet" context:nil];
-    self.frame = CGRectMake(0.0f, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(sheetDidDismissed)];
-    self.coverView.hidden = YES;
-    [UIView commitAnimations];
-}
-
+#pragma mark Layout
 - (void)setPositionInView:(UIView *)view {
     if (0 == self.buttons.count) {
         return;
@@ -109,8 +100,8 @@ static CGFloat const CancelButtonHeight = 44.0f;
     self.backgroundImageView.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height);
     CGFloat beginX = (self.frame.size.width - (IntervalWithButtonsX * (ButtonsPerRow - 1) + buttonWidth * ButtonsPerRow)) / 2;
     self.cancelButton.frame = CGRectMake(beginX,
-                                    (IntervalWithButtonsY + buttonHeight) * ((self.buttons.count - 1) / ButtonsPerRow + 1) + HeaderHeight,
-                                    self.frame.size.width - beginX * 2,
+                                         (IntervalWithButtonsY + buttonHeight) * ((self.buttons.count - 1) / ButtonsPerRow + 1) + HeaderHeight,
+                                         self.frame.size.width - beginX * 2,
                                          CancelButtonHeight);
     if (self.buttons.count > ButtonsPerRow) {
         for (int i = 0; i < self.buttons.count; i++) {
@@ -130,11 +121,32 @@ static CGFloat const CancelButtonHeight = 44.0f;
     }
 }
 
-- (void)buttonAction:(UIButton *)sender {
+#pragma mark Callback Method
+- (void)tapGRAction:(UITapGestureRecognizer *)tapGR {
+    [self dismiss];
+}
+
+- (void)actionButtonAction:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(customActionSheet:clickedButtonAtIndex:)]) {
         [self.delegate customActionSheet:self clickedButtonAtIndex:sender.tag];
     }
     [self dismiss];
+}
+
+- (void)cancelButtonAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(customActionSheetCancel:)]) {
+        [self.delegate customActionSheetCancel:self];
+    }
+    [self dismiss];
+}
+
+- (void)dismiss {
+    [UIView beginAnimations:@"DismissCustomActionSheet" context:nil];
+    self.frame = CGRectMake(0.0f, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(sheetDidDismissed)];
+    self.coverView.hidden = YES;
+    [UIView commitAnimations];
 }
 
 - (void)sheetDidDismissed {

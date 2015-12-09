@@ -31,6 +31,7 @@
                               [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"3333"],
                               [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"4444"],
                               [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"5555"]];
+    
     CustomActionSheet * sheet = [[CustomActionSheet alloc] initWithButtons:buttonArray];
     sheet.delegate = self;
     [sheet showInView:self.view];
@@ -38,7 +39,7 @@
 
 #pragma mark - CustomActionSheetDelegate
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
-             clickAtIndex:(NSInteger)index
+     clickedButtonAtIndex:(NSInteger)index
 {
     NSLog(@"%@", @(index));
 }

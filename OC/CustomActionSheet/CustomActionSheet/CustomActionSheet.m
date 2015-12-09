@@ -41,7 +41,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
         self.coverView.backgroundColor = [UIColor colorWithRed:51.0f / 255.0f green:51.0f / 255.0f blue:51.0f / 255.0f alpha:0.6f];
         self.coverView.hidden = YES;
         
-        UITapGestureRecognizer * tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction:)];
+        UITapGestureRecognizer * tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction)];
         [self.coverView addGestureRecognizer:tapGR];
         
         //  Background ImageView
@@ -61,7 +61,7 @@ static CGFloat const CancelButtonHeight = 44.0f;
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [self.cancelButton setBackgroundImage:[[UIImage imageNamed:@"actionsheet_button"] stretchableImageWithLeftCapWidth:19 topCapHeight:0] forState:UIControlStateNormal];
-        [self.cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.cancelButton addTarget:self action:@selector(cancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.cancelButton];
         
         self.backgroundColor = [UIColor grayColor];
@@ -122,8 +122,8 @@ static CGFloat const CancelButtonHeight = 44.0f;
 }
 
 #pragma mark Callback Method
-- (void)tapGRAction:(UITapGestureRecognizer *)tapGR {
-    [self dismiss];
+- (void)tapGRAction {
+    [self dismissWithTask];
 }
 
 - (void)actionButtonAction:(UIButton *)sender {
@@ -133,7 +133,11 @@ static CGFloat const CancelButtonHeight = 44.0f;
     [self dismiss];
 }
 
-- (void)cancelButtonAction:(UIButton *)sender {
+- (void)cancelButtonAction {
+    [self dismissWithTask];
+}
+
+- (void)dismissWithTask {
     if ([self.delegate respondsToSelector:@selector(customActionSheetCancel:)]) {
         [self.delegate customActionSheetCancel:self];
     }

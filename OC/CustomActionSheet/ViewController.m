@@ -44,4 +44,8 @@
     NSLog(@"%@", @(index));
 }
 
+- (void)customActionSheetCancel:(CustomActionSheet *)actionSheet {
+    NSLog(@"only dismiss");
+}
+
 @end

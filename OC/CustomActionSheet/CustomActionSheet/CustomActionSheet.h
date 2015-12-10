@@ -26,6 +26,11 @@
 
 @property (nonatomic, weak) id<CustomActionSheetDelegate> delegate;
 
+/**
+ *  通过载有 CustomActionSheetButton 的数组初始化 CustomActionSheet
+ *
+ *  @param buttons 载有 CustomActionSheetButton 的数组
+ */
 - (instancetype)initWithButtons:(NSArray *)buttons;
 
 /**

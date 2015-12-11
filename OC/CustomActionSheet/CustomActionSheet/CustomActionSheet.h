@@ -22,6 +22,7 @@
 
 @end
 
+#pragma mark -
 @interface CustomActionSheet : UIView
 
 @property (nonatomic, weak) id<CustomActionSheetDelegate> delegate;

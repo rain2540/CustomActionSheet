@@ -14,11 +14,13 @@
 @protocol CustomActionSheetDelegate <NSObject>
 
 @optional
+/**
+ *  按钮点击事件
+ */
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
      clickedButtonAtIndex:(NSInteger)index;
 
 - (void)customActionSheetCancel:(CustomActionSheet *)actionSheet;
-
 
 @end
 

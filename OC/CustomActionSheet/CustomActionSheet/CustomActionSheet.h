@@ -16,10 +16,17 @@
 @optional
 /**
  *  按钮点击事件
+ *
+ *  @param actionSheet 本控件
+ *  @param index
  */
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
      clickedButtonAtIndex:(NSInteger)index;
 
+/**
+ *  ...
+ *  @param actionSheet ...
+ */
 - (void)customActionSheetCancel:(CustomActionSheet *)actionSheet;
 
 @end

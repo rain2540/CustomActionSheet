@@ -25,7 +25,7 @@
 
 /**
  *  ...
- *  @param actionSheet ...
+ *  @param actionSheet 本控件
  */
 - (void)customActionSheetCancel:(CustomActionSheet *)actionSheet;
 

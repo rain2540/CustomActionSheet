@@ -18,7 +18,7 @@
  *  按钮点击事件
  *
  *  @param actionSheet 本控件
- *  @param index
+ *  @param index 按钮索引值
  */
 - (void)customActionSheet:(CustomActionSheet *)actionSheet
      clickedButtonAtIndex:(NSInteger)index;

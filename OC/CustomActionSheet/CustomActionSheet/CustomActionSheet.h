@@ -24,7 +24,8 @@
      clickedButtonAtIndex:(NSInteger)index;
 
 /**
- *  ...
+ *  点击取消按钮
+ *
  *  @param actionSheet 本控件
  */
 - (void)customActionSheetCancel:(CustomActionSheet *)actionSheet;

@@ -25,6 +25,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark IBAction
 - (IBAction)buttonAction:(UIButton *)sender {
     NSArray * buttonArray = @[[CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"1111"],
                               [CustomActionSheetButton buttonWithImage:[UIImage imageNamed:@"menu_add"] title:@"2222"],

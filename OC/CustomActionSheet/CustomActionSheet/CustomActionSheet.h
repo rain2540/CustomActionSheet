@@ -11,6 +11,7 @@
 
 @class CustomActionSheet;
 
+#pragma mark CustomActionSheetDelegate
 @protocol CustomActionSheetDelegate <NSObject>
 
 @optional

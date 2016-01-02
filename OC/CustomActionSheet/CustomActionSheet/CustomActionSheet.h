@@ -42,6 +42,8 @@
  *  通过载有 CustomActionSheetButton 的数组初始化 CustomActionSheet
  *
  *  @param buttons 载有 CustomActionSheetButton 的数组
+ *
+ *  @return CustomActionSheet对象
  */
 - (instancetype)initWithButtons:(NSArray *)buttons;
 

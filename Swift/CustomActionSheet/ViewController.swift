@@ -25,7 +25,10 @@ class ViewController: UIViewController {
         
         sheet.delegate = self
         
-        sheet.setupViews([CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"), CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")])
+        sheet.setupViews([CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "1"),
+            CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "2"),
+            CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "3"),
+            CustomActionSheetButton.buttonWithImage(UIImage(named: "menu_add")!, title: "4")])
 
         sheet.showInView(view)
     }

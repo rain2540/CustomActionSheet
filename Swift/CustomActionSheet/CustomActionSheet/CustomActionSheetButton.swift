@@ -29,7 +29,7 @@ class CustomActionSheetButton: UIView {
     }
     
     static func buttonWithImage(image: UIImage, title: String) -> CustomActionSheetButton {
-        let button = CustomActionSheetButton()
+        let button = NSBundle.mainBundle().loadNibNamed("CustomActionSheetButton", owner: self, options: nil).first as! CustomActionSheetButton
         button.imageButton.setBackgroundImage(image, forState: .Normal)
         button.titleLabel.text = title
         return button

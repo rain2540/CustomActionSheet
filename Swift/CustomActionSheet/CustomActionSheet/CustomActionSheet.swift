@@ -26,7 +26,7 @@ class CustomActionSheet: UIView {
     lazy var cancelButton = UIButton()
     lazy var coverView = UIView()
     
-    var buttons: [UIView] = []
+    var buttons: [UIView?] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +36,7 @@ class CustomActionSheet: UIView {
         super.init(frame: frame)
     }
     
-    func setupViews(buttonArray: [UIView]) {
+    func setupViews(buttonArray: [UIView?]) {
         buttons = buttonArray
         backgroundColor = UIColor.grayColor()
         
@@ -49,10 +49,11 @@ class CustomActionSheet: UIView {
         addSubview(backgroundImageView)
         
         for i in 0 ..< buttons.count {
-            let button = self.buttons[i] as! CustomActionSheetButton
-            button.imageButton.tag = i
-            button.imageButton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
-            addSubview(button)
+            if let button = self.buttons[i] as? CustomActionSheetButton {
+                button.imageButton.tag = i
+                button.imageButton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
+                addSubview(button)
+            }
         }
         
         cancelButton = UIButton(type: .Custom)

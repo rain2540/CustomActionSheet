@@ -9,29 +9,33 @@
 import UIKit
 
 class CustomActionSheetButton: UIView {
-    @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    var imageButton: UIButton!
+    var titleLabel: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        
+        let item = NSBundle.mainBundle().loadNibNamed("CustomActionSheetButton", owner: self, options: nil).first as! UIView
+        for view in item.subviews {
+            if view is UIButton {
+                self.imageButton = view as! UIButton
+            } else if view is UILabel {
+                self.titleLabel = view as! UILabel
+            }
+        }
+        
     }
     
     init() {
         super.init(coder: NSCoder())!
-        let item = NSBundle.mainBundle().loadNibNamed("CustomActionSheetButton", owner: self, options: nil).first as! UIView
-        for view in item.subviews {
-            if view.isKindOfClass(UIButton.self) {
-                self.imageButton = view as! UIButton
-            } else if view.isKindOfClass(UILabel.self) {
-                self.titleLabel = view as! UILabel
-            }
-        }
     }
     
-    static func buttonWithImage(image: UIImage, title: String) -> CustomActionSheetButton {
-        let button = NSBundle.mainBundle().loadNibNamed("CustomActionSheetButton", owner: self, options: nil).first as! CustomActionSheetButton
-        button.imageButton.setBackgroundImage(image, forState: .Normal)
-        button.titleLabel.text = title
-        return button
+    static func buttonWithImage(image: UIImage, title: String) -> CustomActionSheetButton? {
+        if let button = NSBundle.mainBundle().loadNibNamed("CustomActionSheetButton", owner: self, options: nil).first as? CustomActionSheetButton {
+            button.imageButton.setBackgroundImage(image, forState: .Normal)
+            button.titleLabel.text = title
+            return button
+        }
+        return nil
     }
 }
